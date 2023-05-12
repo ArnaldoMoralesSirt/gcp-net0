@@ -31,12 +31,9 @@ module "fgt_config" {
 
   config_fgcp  = local.cluster_type == "fgcp" ? true : false
   config_fgsp  = local.cluster_type == "fgsp" ? true : false
-  config_spoke = true
   config_xlb   = true
-  spoke        = local.onramp
   ilb1_ip       = module.fgt_vpc.ilb1_ip
 
-  vpc-spoke_cidr = concat(local.vpc_spoke-subnet_cidrs, [module.fgt_vpc.subnet_cidrs["bastion"]])
 }
 #------------------------------------------------------------------------------------------------------------
 # Create FGT cluster instances
