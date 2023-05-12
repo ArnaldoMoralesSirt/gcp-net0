@@ -25,25 +25,6 @@ variable "cluster_pips" {
 }
 
 #-----------------------------------------------------------------------------------
-# Predefined variables for spoke config
-# - config_spoke   = true (default) 
-#-----------------------------------------------------------------------------------
-variable "config_spoke" {
-  type    = bool
-  default = false
-}
-
-// Default parameters to configure a site
-variable "spoke" {
-  type = map(any)
-  default = {
-    id      = "fgt"
-    cidr    = "172.30.0.0/22"
-    bgp-asn = "65000"
-  }
-}
-
-#-----------------------------------------------------------------------------------
 # Predefined variables for FMG 
 # - config_fmg = false (default) 
 #-----------------------------------------------------------------------------------
@@ -75,27 +56,6 @@ variable "fmg_fgt-1_source-ip" {
 variable "fmg_fgt-2_source-ip" {
   type    = string
   default = ""
-}
-
-#-----------------------------------------------------------------------------------
-# Predefined variables for Network Connectivity Center (NCC)
-# - config_ncc = false (default) 
-#-----------------------------------------------------------------------------------
-variable "config_ncc" {
-  type    = bool
-  default = false
-}
-
-variable "ncc_bgp-asn" {
-  type = string 
-  default = "65515"
-}
-
-variable "ncc_peers" {
-  type = list(list(string))
-  default = [
-    ["172.30.0.68","172.30.0.69"]
-  ]
 }
 
 #-----------------------------------------------------------------------------------
