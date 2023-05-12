@@ -37,7 +37,6 @@ data "template_file" "fgt_passive" {
 
     fgt_ha-fgcp-config     = var.config_fgcp ? data.template_file.fgt_ha-fgcp-passive-config.rendered : ""
     fgt_ha-fgsp-config     = var.config_fgsp ? data.template_file.fgt_ha-fgsp-passive-config.rendered : ""
-    fgt_static-config      = var.vpc-spoke_cidr != null ? data.template_file.fgt_passive_static-config.rendered : ""
     fgt_faz-config         = var.config_faz ? data.template_file.fgt_2_faz-config.rendered : ""
     fgt_xlb-config         = var.config_xlb ? data.template_file.fgt_xlb-config.rendered : ""
     fgt_extra-config       = var.fgt_passive_extra-config
@@ -64,14 +63,6 @@ data "template_file" "fgt_ha-fgsp-passive-config" {
     master_secret = random_string.fgsp_auto-config_secret.result
     master_ip     = var.fgt-active-ni_ips["mgmt"]
   }
-}
-
-data "template_file" "fgt_passive_static-config" {
-  template = templatefile("${path.module}/templates/fgt-static.conf", {
-    vpc-spoke_cidr = var.vpc-spoke_cidr
-    port           = var.private1_port
-    gw             = cidrhost(var.subnet_cidrs["private1"], 1)
-  })
 }
 
 data "template_file" "fgt_2_faz-config" {

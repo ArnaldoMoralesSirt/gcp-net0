@@ -66,14 +66,6 @@ data "template_file" "fgt_ha-fgsp-active-config" {
   }
 }
 
-data "template_file" "fgt_active_static-config" {
-  template = templatefile("${path.module}/templates/fgt-static.conf", {
-    vpc-spoke_cidr = var.vpc-spoke_cidr
-    port           = var.private1_port
-    gw             = cidrhost(var.subnet_cidrs["private1"], 1)
-  })
-}
-
 data "template_file" "fgt_1_faz-config" {
   template = file("${path.module}/templates/fgt-faz.conf")
   vars = {
