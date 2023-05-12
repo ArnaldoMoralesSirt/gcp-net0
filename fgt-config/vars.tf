@@ -25,89 +25,6 @@ variable "cluster_pips" {
 }
 
 #-----------------------------------------------------------------------------------
-# Predefined variables for spoke config
-# - config_spoke   = true (default) 
-#-----------------------------------------------------------------------------------
-variable "config_spoke" {
-  type    = bool
-  default = false
-}
-
-// Default parameters to configure a site
-variable "spoke" {
-  type = map(any)
-  default = {
-    id      = "fgt"
-    cidr    = "172.30.0.0/22"
-    bgp-asn = "65000"
-  }
-}
-
-// Details to crate VPN connections
-variable "hubs" {
-  type = list(map(string))
-  default = [
-    {
-      id                = "HUB1"
-      bgp-asn           = "65000"
-      public-ip         = "11.11.11.11"
-      hub-ip            = "172.20.30.1"
-      site-ip           = "172.20.30.10" // set to "" if VPN mode-cfg is enable
-      hck-srv-ip        = "172.20.30.1"
-      vpn_psk           = "secret"
-      cidr              = "172.20.30.0/24"
-      ike-version       = "2"
-      network_id        = "1"
-      dpd-retryinterval = "5"
-    }
-  ]
-}
-
-#-----------------------------------------------------------------------------------
-# Predefined variables for HUB
-# - config_hub   = false (default) 
-# - config_vxlan = false (default)
-#-----------------------------------------------------------------------------------
-variable "config_hub" {
-  type    = bool
-  default = false
-}
-
-// Variable to create a a VPN HUB
-variable "hub" {
-  type = map(any)
-  default = {
-    id                = "fgt"
-    bgp-asn_hub       = "65002"
-    bgp-asn_spoke     = "65000"
-    vpn_cidr          = "10.10.10.0/24"
-    vpn_psk           = "secret-key-123"
-    cidr              = "172.30.0.0/22"
-    ike-version       = "2"
-    network_id        = "1"
-    dpd-retryinterval = "5"
-    mode-cfg          = true
-  }
-}
-
-variable "config_vxlan" {
-  type    = bool
-  default = false
-}
-
-// Details for vxlan connection to hub (simulated L2/MPLS)
-variable "hub-peer_vxlan" {
-  type = map(string)
-  default = {
-    bgp-asn   = "65000"
-    public-ip = "" // leave in blank if you don't know public IP jet
-    remote-ip = "10.10.30.1"
-    local-ip  = "10.10.30.2"
-    vni       = "1100"
-  }
-}
-
-#-----------------------------------------------------------------------------------
 # Predefined variables for FMG 
 # - config_fmg = false (default) 
 #-----------------------------------------------------------------------------------
@@ -139,27 +56,6 @@ variable "fmg_fgt-1_source-ip" {
 variable "fmg_fgt-2_source-ip" {
   type    = string
   default = ""
-}
-
-#-----------------------------------------------------------------------------------
-# Predefined variables for Network Connectivity Center (NCC)
-# - config_ncc = false (default) 
-#-----------------------------------------------------------------------------------
-variable "config_ncc" {
-  type    = bool
-  default = false
-}
-
-variable "ncc_bgp-asn" {
-  type = string 
-  default = "65515"
-}
-
-variable "ncc_peers" {
-  type = list(list(string))
-  default = [
-    ["172.30.0.68","172.30.0.69"]
-  ]
 }
 
 #-----------------------------------------------------------------------------------
@@ -240,11 +136,6 @@ variable "fgt_passive_extra-config" {
 variable "fgt_active_extra-config" {
   type    = string
   default = ""
-}
-
-variable "vpc-spoke_cidr" {
-  type    = list(string)
-  default = null
 }
 
 variable "fgt-active-ni_ips" {

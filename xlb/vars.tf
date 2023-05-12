@@ -55,16 +55,6 @@ variable "ilb4_ip" {
   default = null
 }
 
-variable "config_spoke_route" {
-  type    = bool
-  default = false
-}
-
-variable "vpc_spoke_names" {
-  type    = list(string)
-  default = null
-}
-
 variable "subnet_names" {
   type    = map(string)
   default = null
