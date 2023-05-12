@@ -7,7 +7,7 @@ data "template_file" "fgt_passive" {
   template = file("${path.module}/templates/fgt-all.conf")
 
   vars = {
-    fgt_id         = var.config_spoke ? "${var.spoke["id"]}-2" : "${var.hub["id"]}-2"
+    fgt_id         = "fgt-passive2"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"

@@ -7,7 +7,7 @@ data "template_file" "fgt_mgmt" {
   template = file("${path.module}/templates/fgt-mgmt.conf")
 
   vars = {
-    fgt_id         = var.config_spoke ? "${var.spoke["id"]}-mgmt" : "${var.hub["id"]}-mgmt"
+    fgt_id         = "fgt-mgmt"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"

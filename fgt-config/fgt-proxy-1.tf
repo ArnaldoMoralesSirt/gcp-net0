@@ -7,7 +7,7 @@ data "template_file" "fgt_proxy_1" {
   template = file("${path.module}/templates/fgt-proxy-1.conf")
 
   vars = {
-    fgt_id         = var.config_spoke ? "${var.spoke["id"]}-proxy-1" : "${var.hub["id"]}-proxy-1"
+    fgt_id         = "fgt-proxy1"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"
