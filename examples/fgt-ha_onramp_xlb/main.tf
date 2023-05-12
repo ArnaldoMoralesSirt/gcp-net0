@@ -42,7 +42,7 @@ module "fgt_config" {
 # Create FGT cluster instances
 #------------------------------------------------------------------------------------------------------------
 module "fgt" {
-  source = "../../fgt-ha"
+  source = "../../fgt-vm-instances"
 
   prefix = local.prefix
   region = local.region
@@ -72,18 +72,6 @@ module "fgt" {
   fgt_passive = local.fgt_passive
 }
 #------------------------------------------------------------------------------------------------------------
-# Create VPC spokes peered to VPC FGT
-#------------------------------------------------------------------------------------------------------------
-module "vpc_spoke" {
-  source = "../../vpc-spoke"
-
-  prefix = local.prefix
-  region = local.region
-
-  spoke-subnet_cidrs = local.vpc_spoke-subnet_cidrs
-  fgt_vpc_self_link  = module.fgt_vpc.vpc_self_links["private1"]
-}
-#------------------------------------------------------------------------------------------------------------
 # Create Internal and External Load Balancer
 #------------------------------------------------------------------------------------------------------------
 module "xlb" {
@@ -103,24 +91,6 @@ module "xlb" {
   fgt_active_self_link  = module.fgt.fgt_active_self_link
   fgt_passive_self_link = module.fgt.fgt_passive_self_link[0]
 }
-#------------------------------------------------------------------------------------------------------------
-# Create VM in VPC spokes
-#------------------------------------------------------------------------------------------------------------
-module "vm_spoke" {
-  source = "../../new-instance"
-
-  prefix = local.prefix
-  region = local.region
-  zone   = local.zone1
-
-  rsa-public-key = trimspace(tls_private_key.ssh-rsa.public_key_openssh)
-  gcp-user_name  = split("@", data.google_client_openid_userinfo.me.email)[0]
-
-  subnet_name = module.vpc_spoke.subnet_name
-}
-
-
-
 
 
 #------------------------------------------------------------------------------------------------------------
