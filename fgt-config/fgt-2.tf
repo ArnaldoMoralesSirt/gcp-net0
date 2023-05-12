@@ -39,7 +39,6 @@ data "template_file" "fgt_passive" {
     fgt_ha-fgsp-config     = var.config_fgsp ? data.template_file.fgt_ha-fgsp-passive-config.rendered : ""
     fgt_static-config      = var.vpc-spoke_cidr != null ? data.template_file.fgt_passive_static-config.rendered : ""
     fgt_faz-config         = var.config_faz ? data.template_file.fgt_2_faz-config.rendered : ""
-    fgt_ncc-config         = var.config_ncc ? data.template_file.fgt_ncc-config.rendered : ""
     fgt_xlb-config         = var.config_xlb ? data.template_file.fgt_xlb-config.rendered : ""
     fgt_extra-config       = var.fgt_passive_extra-config
   }
