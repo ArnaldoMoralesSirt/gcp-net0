@@ -29,3 +29,11 @@ output "fgt_active_eip_public" {
 output "fgt_passive_eip_public" {
   value = google_compute_address.active-public-ip.*.address
 }
+
+output "fgt_proxy-1_eip_public" {
+  value = google_compute_address.fgtproxy1-mgmt-public-ip.*.address
+}
+
+output "fgt_proxy-2_eip_public" {
+  value = google_compute_address.fgtproxy2-mgmt-public-ip.*.address
+}
