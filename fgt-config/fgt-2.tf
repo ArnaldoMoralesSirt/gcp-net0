@@ -7,7 +7,7 @@ data "template_file" "fgt_passive" {
   template = file("${path.module}/templates/fgt-all.conf")
 
   vars = {
-    fgt_id         = "fgt-passive2"
+    fgt_id         = "nus-gcp-fwnet0-01-eswb"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"

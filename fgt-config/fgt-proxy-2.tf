@@ -7,7 +7,7 @@ data "template_file" "fgt_proxy_2" {
   template = file("${path.module}/templates/fgt-proxy-2.conf")
 
   vars = {
-    fgt_id         = "fgt-proxy2"
+    fgt_id         = "nus-gcp-prxnet0-01-eswb"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"

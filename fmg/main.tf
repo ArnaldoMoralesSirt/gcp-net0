@@ -70,7 +70,7 @@ resource "google_compute_instance" "fmg" {
 data "template_file" "fmg_config" {
   template = file("${path.module}/templates/fmg.conf")
   vars = {
-    fmg_id           = "${var.prefix}-fmg"
+    fmg_id           = "nus-gcpg-cfwnet0-01-eswa"
     type             = var.license_type
     license_file     = var.license_file
     admin_username   = var.admin_username

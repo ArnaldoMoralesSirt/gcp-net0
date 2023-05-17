@@ -7,7 +7,7 @@ data "template_file" "fgt_mgmt" {
   template = file("${path.module}/templates/fgt-mgmt.conf")
 
   vars = {
-    fgt_id         = "fgt-mgmt"
+    fgt_id         = "nus-gcpg-fwnet0-01-eswa"
     admin_port     = var.admin_port
     admin_cidr     = var.admin_cidr
     adminusername  = "admin"

@@ -70,7 +70,7 @@ resource "google_compute_instance" "faz" {
 data "template_file" "faz_config" {
   template = file("${path.module}/templates/faz.conf")
   vars = {
-    faz_id           = "${var.prefix}-faz"
+    faz_id           = "nus-gcpg-logfwnet0-01-eswa"
     type             = var.license_type
     license_file     = var.license_file
     admin_username   = var.admin_username
