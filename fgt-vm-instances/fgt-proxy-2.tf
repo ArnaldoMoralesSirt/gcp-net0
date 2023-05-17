@@ -35,15 +35,15 @@ resource "google_compute_instance" "fgt-proxy-2" {
     source = google_compute_disk.fgtproxy2-logdisk.name
   }
   network_interface {
-    subnetwork = var.subnet_names["onpremise"]
-    network_ip = var.fgt-proxy-2-ni_ips["onpremise"]
-  }
-  network_interface {
-    subnetwork = var.subnet_names["mgmt"]
-    network_ip = var.fgt-proxy-2-ni_ips["mgmt"]
+    subnetwork = var.subnet_names["public"]
+    network_ip = var.fgt-proxy-2-ni_ips["public"]
     access_config {
       nat_ip = google_compute_address.fgtproxy2-mgmt-public-ip.address
     }
+  }
+  network_interface {
+    subnetwork = var.subnet_names["onpremise"]
+    network_ip = var.fgt-proxy-2-ni_ips["onpremise"]
   }
   network_interface {
     subnetwork = var.subnet_names["private1"]
