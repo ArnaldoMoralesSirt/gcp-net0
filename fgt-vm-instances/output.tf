@@ -31,11 +31,11 @@ output "fgt_passive_eip_public" {
 }
 
 output "fgt_proxy-1_id" {
-  value = google_compute_instance.fgt_proxy-1.instance_id
+  value = google_compute_instance.fgt-proxy-1.instance_id
 }
 
 output "fgt_proxy-2_id" {
-  value = google_compute_instance.fgt_proxy-2.instance_id
+  value = google_compute_instance.fgt-proxy-2.instance_id
 }
 
 output "fgt_proxy-1_eip_public" {
