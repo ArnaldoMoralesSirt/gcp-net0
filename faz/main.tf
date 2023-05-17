@@ -25,7 +25,7 @@ resource "google_compute_address" "faz-public-ip" {
 
 # Create FGTVM compute faz instance
 resource "google_compute_instance" "faz" {
-  name         = "${var.prefix}-faz"
+  name         = "nus-gcpg-logfwnet0-01-eswa"
   machine_type = var.machine
   zone         = var.zone
 

@@ -25,7 +25,7 @@ resource "google_compute_address" "fmg-public-ip" {
 
 # Create FGTVM compute fmg instance
 resource "google_compute_instance" "fmg" {
-  name         = "${var.prefix}-fmg"
+  name         = "nus-gcpg-cfwnet0-01-eswa"
   machine_type = var.machine
   zone         = var.zone
 
