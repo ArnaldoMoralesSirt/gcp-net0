@@ -24,7 +24,7 @@ resource "google_compute_instance" "fgt-proxy-2" {
   zone           = var.zone1
   can_ip_forward = "true"
 
-  tags = ["${var.prefix}-t-fwr-fgtproxy2-mgmt", "${var.prefix}-t-fwr-fgtproxy2-public", "${var.prefix}-t-fwr-fgtproxy2-private"]
+  tags = ["${var.prefix}-t-fwr-fgtproxy2-mgmt", "${var.prefix}-t-fwr-fgtproxy2-public", "${var.prefix}-t-fwr-fgtproxy2-private", "${var.prefix}-t-fwr-fgt-public"]
 
   boot_disk {
     initialize_params {
