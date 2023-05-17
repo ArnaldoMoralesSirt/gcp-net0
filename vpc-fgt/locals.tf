@@ -43,14 +43,14 @@ locals {
   # ----------------------------------------------------------------------------------
   # FGT Proxy 1 - 2
   # ----------------------------------------------------------------------------------
-  fgt-proxy-1_ni_mgmt_ip     = cidrhost(local.subnet_mgmt_cidr, 12)
+  fgt-proxy-1_ni_public_ip     = cidrhost(local.subnet_public_cidr, 12)
   fgt-proxy-1_ni_private1_ip  = cidrhost(local.subnet_private1_cidr, 12)
   fgt-proxy-1_ni_private2_ip  = cidrhost(local.subnet_private2_cidr, 12)
   fgt-proxy-1_ni_private3_ip  = cidrhost(local.subnet_private3_cidr, 12)
   fgt-proxy-1_ni_private4_ip  = cidrhost(local.subnet_private4_cidr, 12)
   fgt-proxy-1_ni_onpremise_ip  = cidrhost(local.subnet_onpremise_cidr, 12)
 
-  fgt-proxy-2_ni_mgmt_ip     = cidrhost(local.subnet_mgmt_cidr, 13)
+  fgt-proxy-2_ni_public_ip     = cidrhost(local.subnet_public_cidr, 13)
   fgt-proxy-2_ni_private1_ip  = cidrhost(local.subnet_private1_cidr, 13)
   fgt-proxy-2_ni_private2_ip  = cidrhost(local.subnet_private2_cidr, 13)
   fgt-proxy-2_ni_private3_ip  = cidrhost(local.subnet_private3_cidr, 13)
