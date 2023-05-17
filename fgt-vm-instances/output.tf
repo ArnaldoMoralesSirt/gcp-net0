@@ -34,7 +34,7 @@ output "fgt_proxy-1_id" {
   value = google_compute_instance.fgt_proxy-1_id
 }
 
-output "fgt_proxy-2_id {
+output "fgt_proxy-2_id" {
   value = google_compute_instance.fgt_proxy-2_id
 }
 
