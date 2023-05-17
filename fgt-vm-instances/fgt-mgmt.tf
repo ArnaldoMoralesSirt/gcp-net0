@@ -19,7 +19,7 @@ resource "google_compute_address" "fgtmgmt-mgmt-public-ip" {
 
 # Create FGTVM compute active instance
 resource "google_compute_instance" "fgt-mgmt" {
-  name           = var.fgt_ha_fgsp ? "${var.prefix}-fgt-mgmt" : "${var.prefix}-fgt-mgmt"
+  name           = "nus-gcpg-fwnet0-01-eswa"
   machine_type   = var.machinemgmt
   zone           = var.zone1
   can_ip_forward = "true"

@@ -19,7 +19,7 @@ resource "google_compute_address" "fgtproxy1-mgmt-public-ip" {
 
 # Create FGTVM compute proxy1 instance
 resource "google_compute_instance" "fgt-proxy-1" {
-  name           = var.fgt_ha_fgsp ? "${var.prefix}-fgt-proxy-1" : "${var.prefix}-fgt-proxy-1"
+  name           = "nus-gcp-prxnet0-01-eswa"
   machine_type   = var.machineproxy
   zone           = var.zone1
   can_ip_forward = "true"
