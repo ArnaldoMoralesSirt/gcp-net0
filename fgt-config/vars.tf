@@ -193,6 +193,21 @@ variable "private1_port" {
   default = "port4"
 }
 
+variable "private2_port" {
+  type    = string
+  default = "port5"
+}
+
+variable "private3_port" {
+  type    = string
+  default = "port6"
+}
+
+variable "private4_port" {
+  type    = string
+  default = "port7"
+}
+
 // License Type to create FortiGate-VM
 // Provide the license type for FortiGate-VM Instances, either byol or payg.
 variable "license_type" {
