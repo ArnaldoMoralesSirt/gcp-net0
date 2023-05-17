@@ -124,8 +124,8 @@ resource "google_compute_address" "passive-public-ip" {
 
 # Create FGT passive instance (FGCP cluster)
 resource "google_compute_instance" "fgt-passive_fgcp" {
-  count          = "nus-gcp-fwnet0-01-eswa"
-  name           = var.fgt_ha_fgsp ? "${var.prefix}-fgt-2" : "${var.prefix}-fgt-passive"
+  count          = var.fgt-passive-ni_ips != null && var.fgt_passive && var.config_fgsp ? 0 : 1
+  name           = "nus-gcp-fwnet0-01-eswb"
   machine_type   = var.machine
   zone           = var.zone2
   can_ip_forward = "true"
@@ -188,8 +188,8 @@ resource "google_compute_instance" "fgt-passive_fgcp" {
 
 # Create FGT passive instance (FGCP cluster)
 resource "google_compute_instance" "fgt-passive_fgsp" {
-  count          = "nus-gcp-fwnet0-01-eswa"
-  name           = var.fgt_ha_fgsp ? "${var.prefix}-fgt-2" : "${var.prefix}-fgt-passive"
+  count          = var.fgt-passive-ni_ips != null && var.fgt_passive && var.config_fgsp ? 1 : 0
+  name           = "nus-gcp-fwnet0-01-eswb"
   machine_type   = var.machine
   zone           = var.zone2
   can_ip_forward = "true"
