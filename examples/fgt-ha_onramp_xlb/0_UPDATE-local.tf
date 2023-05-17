@@ -5,7 +5,7 @@ locals {
   region = "europe-southwest1"
   zone1  = "europe-southwest1-a"
   zone2  = "europe-southwest1-b"
-  prefix = "fgt-xlb-net0"
+  prefix = "nus-gcp-net0-01"
   
   #-----------------------------------------------------------------------------------------------------
   # FGT
