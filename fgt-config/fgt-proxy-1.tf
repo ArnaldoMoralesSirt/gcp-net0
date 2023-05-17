@@ -21,11 +21,11 @@ data "template_file" "fgt_proxy_1" {
     private1_mask = "255.255.255.255"
     private1_gw   = cidrhost(var.subnet_cidrs["private1"], 1)
     private1_cidr = var.subnet_cidrs["private1"]
-    mgmt_port    = var.mgmt_port
-    mgmt_ip      = var.fgt-proxy-1-ni_ips["mgmt"]
-    mgmt_mask    = "255.255.255.255"
-    mgmt_gw      = cidrhost(var.subnet_cidrs["mgmt"], 1)
-    mgmt_cidr    = var.subnet_cidrs["mgmt"]
+    public_port    = var.public_port
+    public_ip      = var.fgt-proxy-1-ni_ips["public"]
+    public_mask    = "255.255.255.255"
+    public_gw      = cidrhost(var.subnet_cidrs["public"], 1)
+    public_cidr    = var.subnet_cidrs["public"]
     onpremise_port = var.onpremise_port
     onpremise_ip   = var.fgt-proxy-1-ni_ips["onpremise"]
     onpremise_mask = "255.255.255.255"
