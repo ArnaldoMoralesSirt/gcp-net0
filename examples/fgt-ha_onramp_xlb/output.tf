@@ -30,6 +30,6 @@ output "prx" {
     prx-1_public   = "https://${module.fgt.fgt_proxy-1_eip_public}:${local.admin_port}"
     prx-1_pass   = module.fgt.fgt_proxy-1_id
     prx-2_public   = "https://${module.fgt.fgt_proxy-2_eip_public}:${local.admin_port}"
-    fgt-2_pass   = module.fgt.fgt_proxy2_id
+    fgt-2_pass   = module.fgt.fgt_proxy-2_id
   }
 }
