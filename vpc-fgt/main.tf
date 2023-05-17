@@ -162,7 +162,7 @@ resource "google_compute_firewall" "allow-public-fgt" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "443", "8080", "8000", "${var.backend-probe_port}"]
+    ports    = ["22", "80", "8443", "443", "8080", "8000", "${var.backend-probe_port}"]
   }
 
   allow {
