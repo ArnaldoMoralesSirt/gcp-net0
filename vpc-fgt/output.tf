@@ -131,7 +131,7 @@ output "fgt-proxy-1-ni_ips" {
     private2 = local.fgt-proxy-1_ni_private2_ip
     private3 = local.fgt-proxy-1_ni_private3_ip
     private4 = local.fgt-proxy-1_ni_private4_ip
-    mgmt    = local.fgt-proxy-1_ni_mgmt_ip
+    public    = local.fgt-proxy-1_ni_public_ip
     onpremise    = local.fgt-proxy-1_ni_onpremise_ip
   }
 }
@@ -142,7 +142,7 @@ output "fgt-proxy-2-ni_ips" {
     private2 = local.fgt-proxy-2_ni_private2_ip
     private3 = local.fgt-proxy-2_ni_private3_ip
     private4 = local.fgt-proxy-2_ni_private4_ip
-    mgmt    = local.fgt-proxy-2_ni_mgmt_ip
+    public    = local.fgt-proxy-2_ni_public_ip
     onpremise    = local.fgt-proxy-2_ni_onpremise_ip
   }
 }
